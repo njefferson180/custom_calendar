@@ -3,31 +3,217 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 36, 36, 36;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
+
+html{
+  font-size: 62.5%;
+}
+
 
 body {
+  box-sizing: border-box;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-end-rgb));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+/**********  custom calendar date  ***********/
+
+/**=================== custom calendar ============== */
+
+/***** */
+
+.Calendar__weekDays {
+  color: #344054 !important;
+}
+
+.calendar_custom .Calendar.-ltr {
+  width: 100% !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.calendar_custom .Calendar {
+  width: 100% !important;
+  box-shadow: initial !important;
+  /* border: 1px solid #E0E0E0; */
+  padding-top: 0px !important;
+  background-color: transparent !important;
+}
+
+.calendar_custom .Calendar__day.-selectedBetween {
+  background: #fffaea !important;
+  color: #3a4760 !important;
+}
+
+.Calendar__day.-selectedBetween {
+  background: #fffaea !important;
+  color: #3a4760 !important;
+}
+
+/*** model 1 ***/
+.custom_model_1 .Calendar.-ltr {
+  width: 100% !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.custom_model_1 .Calendar {
+  width: 100% !important;
+  box-shadow: initial !important;
+  padding-top: 0px !important;
+  background-color: transparent !important;
+}
+
+.custom_model_1 .Calendar__day.-selectedBetween {
+  background: #FFFAEA !important;
+  color: #3A4760 !important;
+}
+
+.custom_model_1 .Calendar__day {
+  padding: calc(5px - 1px) 0 !important;
+}
+
+.custom_model_1 .Calendar__section {
+  overflow: hidden;
+  padding: 0 24px !important;
+  padding-top: 4px !important;
+}
+
+.custom_model_1 .Calendar__day.-selected,
+.custom_model_1 .Calendar__day.-selectedStart,
+.custom_model_1 .Calendar__day.-selectedEnd {
+  background: #31987c !important;
+  color: #ffffff !important;
+}
+
+.custom_model_1 .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(
+    .-selectedBetween
+  ) {
+    background: #CCDCF9 !important;
+    color: #3A4760 !important;
+}
+
+.custom_model_1 .Calendar__day.-ltr:hover {
+  background-color: #31987c !important;
+  color: #ffffff !important;
+  transition: 0.8s ease;
+}
+
+.custom_model_1 .Calendar__yearSelectorItem.-active .Calendar__yearSelectorText {
+    height: auto !important;
+    background-color: #31987c !important;
+}
+
+.custom_model_1 .Calendar__monthSelectorItem.-active .Calendar__monthSelectorItemText, .Calendar__yearSelectorItem.-active .Calendar__yearSelectorText {
+    background: #31987c !important;
+    color: #ffffff !important;
+    height: auto !important;
+    width: 20px !important;
+}
+
+
+
+
+/*** model 2 ***/
+.custom_model_2 .Calendar__sectionWrapper{
+  margin-top: 6px !important;
+  min-height: 27em !important;
+}
+
+.custom_model_2 .Calendar__weekDays {
+  margin-top: 54px !important;
+}
+
+.custom_model_2 .Calendar.-ltr {
+  width: 100% !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.custom_model_2 .Calendar {
+  width: 100% !important;
+  box-shadow: initial !important;
+  padding-top: 0px !important;
+  background-color: transparent !important;
+}
+
+.custom_model_2 .Calendar__day.-selectedBetween {
+  background: #d9f2e6 !important;
+  color: #3A4760 !important;
+}
+
+.custom_model_2 .Calendar__day {
+  padding: calc(5px - 1px) 0 !important;
+}
+
+.custom_model_2 .Calendar__section {
+  overflow: hidden;
+  padding: 0 24px !important;
+  padding-top: 4px !important;
+}
+
+.custom_model_2 .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(
+    .-selectedBetween
+  ) {
+  background: #CCDCF9 !important;
+  color: #3A4760 !important;
+}
+
+.custom_model_2 .Calendar__day.-selected,
+.custom_model_2 .Calendar__day.-selectedStart,
+.custom_model_2 .Calendar__day.-selectedEnd {
+  background: #31987c !important;
+  color: #ffffff !important;
+}
+
+
+.custom_model_2 .Calendar__day.-ltr:hover {
+  background-color: #31987c !important;
+  color: #ffffff !important;
+  transition: 0.8s ease;
+}
+
+.custom_model_2 .Calendar__yearSelectorItem.-active .Calendar__yearSelectorText {
+    height: auto !important;
+    background-color: #31987c !important;
+}
+
+.custom_model_2 .Calendar__monthSelectorItem.-active .Calendar__monthSelectorItemText, .Calendar__yearSelectorItem.-active .Calendar__yearSelectorText {
+    background: #31987c !important;
+    color: #ffffff !important;
+    height: auto !important;
+    width: 90px !important;
+}
+
+.Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
+  color: #acacac !important;
+}
+
+.Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):hover {
+  color: #ffffff !important;
+}
+
+.Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
+  display: none !important;
+}
+
+.Calendar__header {
+  padding: 0px 12px 10px 12px !important;
+}
+
+.Calendar__day.-ltr {
+  min-height: 40px !important;
+  font-size: 1.45em;
 }
